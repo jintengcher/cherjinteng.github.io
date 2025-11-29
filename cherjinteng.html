@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CHER JIN TENG — Portfolio</title>
+  <meta name="description" content="Personal portfolio of [Your Name] — projects, skills, resume and contact." />
+
+  <!-- Google Font (fallback safe) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg: #0f1724;
+      --card: #0b1220;
+      --muted: #9aa4b2;
+      --accent: #3b82f6; /* blue */
+      --glass: rgba(255,255,255,0.04);
+      --glass-2: rgba(255,255,255,0.02);
+      --radius: 12px;
+      color-scheme: dark;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial}
+    body{background:linear-gradient(180deg,#071021 0%, #071226 60%);color:#e6eef8;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+
+    /* layout */
+    .container{max-width:1100px;margin:0 auto;padding:28px}
+    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+    .brand{display:flex;gap:14px;align-items:center}
+    .logo{width:52px;height:52px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#6ee7b7);display:flex;align-items:center;justify-content:center;font-weight:700;color:#07203a}
+    nav{display:flex;gap:12px}
+    nav a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:8px;font-weight:600}
+    nav a:hover{color:#fff;background:var(--glass)}
+
+    /* hero */
+    .hero{display:grid;grid-template-columns:1fr 380px;gap:28px;align-items:center;margin:28px 0}
+    .intro h1{font-size:32px;margin:0 0 8px}
+    .intro p{margin:0 0 16px;color:var(--muted);max-width:54ch}
+    .cta{display:flex;gap:12px}
+    .btn{background:var(--accent);color:#041022;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700}
+    .btn.secondary{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+
+    /* card */
+    .card{background:linear-gradient(180deg,var(--card),rgba(8,12,18,0.6));padding:18px;border-radius:var(--radius);box-shadow:0 6px 24px rgba(2,6,12,0.6)}
+
+    /* about */
+    .about{display:flex;gap:18px;align-items:center}
+    .avatar{width:120px;height:120px;border-radius:8px;background:linear-gradient(180deg,#0b1220,#071226);display:flex;align-items:center;justify-content:center;font-weight:700;border:1px solid rgba(255,255,255,0.03)}
+    .skills{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:12px}
+    .skill{display:flex;flex-direction:column;gap:6px}
+    .progress{height:9px;background:var(--glass-2);border-radius:999px;overflow:hidden}
+    .progress > i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),#7dd3fc);border-radius:999px}
+
+    /* projects */
+    .projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:14px}
+    .project-card{display:flex;flex-direction:column;border-radius:10px;overflow:hidden}
+    .project-media{height:160px;background:linear-gradient(135deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));display:flex;align-items:center;justify-content:center}
+    .project-content{padding:12px;background:linear-gradient(180deg,transparent,rgba(255,255,255,0.01))}
+    .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+    .tag{font-size:12px;padding:6px 8px;border-radius:999px;background:rgba(255,255,255,0.03);color:var(--muted)}
+    .project-actions{display:flex;gap:8px;margin-top:12px}
+    .small-btn{padding:8px 10px;border-radius:8px;font-weight:600;text-decoration:none;background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted)}
+
+    /* contact */
+    .contact-grid{display:grid;grid-template-columns:1fr 360px;gap:16px}
+    .field{display:flex;flex-direction:column;gap:8px;margin-bottom:10px}
+    input,textarea{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:10px;border-radius:8px;color:#dfeaf6}
+    textarea{min-height:120px;resize:vertical}
+    footer{margin-top:32px;text-align:center;color:var(--muted);font-size:13px}
+
+    /* responsive */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr;}
+      .projects-grid{grid-template-columns:1fr}
+      .contact-grid{grid-template-columns:1fr}
+      nav{display:none}
+    }
+
+    /* subtle animations */
+    .fade-up{opacity:0;transform:translateY(6px);animation:fadeUp .7s ease forwards}
+    @keyframes fadeUp{to{opacity:1;transform:none}}
+
+    /* small utility */
+    .muted{color:var(--muted)}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">YN</div>
+        <div style="line-height:1">
+          <div style="font-weight:700">CHER JIN TENG</div>
+          <div class="muted" style="font-size:13px">Computer Science student • Full‑stack developer</div>
+        </div>
+      </div>
+
+      <nav aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section id="home" class="hero card">
+      <div class="intro">
+        <h1 class="fade-up">Hi, I'm <span style="color:var(--accent)">CHER JIN TENG (JINTENG)</span>.</h1>
+        <p class="muted fade-up" style="animation-delay:.05s">I'm a <strong>Computer Science</strong> student at <em>UNIVERSITI TEKNOLOGI MALAYSIA</em> who loves building web applications and solving real-world problems. I focus on full‑stack development, data visualization, and clean, accessible UI.</p>
+
+        <div class="cta fade-up" style="animation-delay:.1s">
+          <a class="btn" href="#projects">View My Projects</a>
+          <a class="btn secondary" href="C:\personal web\CHER JIN TENG_CV.pdf" target="_blank" rel="noopener">View Resume</a>
+        </div>
+
+        <div style="margin-top:18px" class="muted">Available for internships & freelance projects — <strong>open to opportunities</strong>.</div>
+      </div>
+
+      <aside>
+        <div class="card" style="padding:18px;">
+          <div style="display:flex;align-items:center;gap:12px">
+            <div class="avatar">IMG</div>
+            <div>
+              <div style="font-weight:700">CHER JIN TENG</div>
+              <div class="muted" style="font-size:13px">Johor Bahru, Malaysia • cherjinteng2005@gmail.com | cherjinteng@graduate.utm.my</div>
+            </div>
+          </div>
+
+          <div style="margin-top:14px">
+            <div class="muted">Top skills</div>
+            <div class="skills">
+              <div class="skill">
+                <div style="display:flex;justify-content:space-between;font-size:13px"><span>JavaScript</span><span class="muted">85%</span></div>
+                <div class="progress"><i style="width:85%"></i></div>
+              </div>
+              <div class="skill">
+                <div style="display:flex;justify-content:space-between;font-size:13px"><span>Python</span><span class="muted">80%</span></div>
+                <div class="progress"><i style="width:80%"></i></div>
+              </div>
+              <div class="skill">
+                <div style="display:flex;justify-content:space-between;font-size:13px"><span>React</span><span class="muted">78%</span></div>
+                <div class="progress"><i style="width:78%"></i></div>
+              </div>
+              <div class="skill">
+                <div style="display:flex;justify-content:space-between;font-size:13px"><span>SQL</span><span class="muted">70%</span></div>
+                <div class="progress"><i style="width:70%"></i></div>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top:14px;display:flex;gap:8px">
+            <a class="small-btn" href="https://github.com/your-username" target="_blank">GitHub</a>
+            <a class="small-btn" href="https://www.linkedin.com/in/your-profile" target="_blank">LinkedIn</a>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" style="margin-top:18px">
+      <div class="card">
+        <h2>About Me</h2>
+        <div class="about" style="margin-top:12px">
+          <div>
+            <p class="muted">I'm currently a <strong>Computer Science</strong> student at <em>[Your University]</em>. I enjoy building full‑stack web applications and data visualizations. My interests include web performance, user experience, and applying machine learning to practical problems.</p>
+
+            <ul style="margin-top:12px;color:var(--muted)">
+              <li>Experienced with JavaScript (ES6+), React, Node.js, and Python.</li>
+              <li>Worked on projects involving REST APIs, SQL/NoSQL databases, and data visualization.</li>
+              <li>Comfortable with version control using Git and collaborative workflows.</li>
+            </ul>
+
+            <div style="margin-top:12px">
+              <a class="btn" href="#projects">See Projects</a>
+              <a class="btn secondary" href="mailto:your.email@example.com">Contact Me</a>
+            </div>
+          </div>
+
+          <div style="min-width:280px">
+            <div class="card" style="padding:12px">
+              <strong>Education</strong>
+              <div class="muted" style="margin-top:6px">[Your University] — B.Sc. Computer Science<br><small class="muted">Expected graduation: 2026</small></div>
+
+              <div style="margin-top:12px">
+                <strong>Tools & Technologies</strong>
+                <div class="tags" style="margin-top:8px">
+                  <span class="tag">React</span>
+                  <span class="tag">Node.js</span>
+                  <span class="tag">Python</span>
+                  <span class="tag">Flask</span>
+                  <span class="tag">MySQL</span>
+                  <span class="tag">Docker</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" style="margin-top:18px">
+      <h2>Projects</h2>
+      <div class="projects-grid">
+
+        <!-- Project card 1 -->
+        <article class="card project-card">
+          <div class="project-media">
+            <!-- simple SVG placeholder -->
+            <svg width="60%" height="60%" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="200" height="100" rx="8" fill="#071226"/><text x="100" y="56" fill="#89c2ff" font-size="14" font-weight="700" text-anchor="middle">E‑Commerce Analytics</text></svg>
+          </div>
+          <div class="project-content">
+            <h3 style="margin:0">E‑Commerce Sales Dashboard</h3>
+            <p class="muted" style="margin-top:6px">A full‑stack web app to visualize sales, user behavior and KPI trends for an online store. Includes CSV import and interactive charts.</p>
+            <div class="tags">
+              <span class="tag">Python</span>
+              <span class="tag">Flask</span>
+              <span class="tag">Chart.js</span>
+              <span class="tag">MySQL</span>
+            </div>
+            <div class="project-actions">
+              <a class="small-btn" href="https://github.com/your-username/ecommerce-analytics" target="_blank">View Code</a>
+              <a class="small-btn" href="#" onclick="openDemo(event,'https://example.com/demo1')">Live Demo</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project card 2 -->
+        <article class="card project-card">
+          <div class="project-media">
+            <svg width="60%" height="60%" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="200" height="100" rx="8" fill="#071226"/><text x="100" y="56" fill="#7ee7c9" font-size="14" font-weight="700" text-anchor="middle">Personal Blog</text></svg>
+          </div>
+          <div class="project-content">
+            <h3 style="margin:0">Static Blog with CMS</h3>
+            <p class="muted" style="margin-top:6px">A fast static blog built with a lightweight CMS. Focused on accessibility and SEO best practices.</p>
+            <div class="tags">
+              <span class="tag">React</span>
+              <span class="tag">Netlify</span>
+              <span class="tag">Markdown</span>
+            </div>
+            <div class="project-actions">
+              <a class="small-btn" href="https://github.com/your-username/static-blog" target="_blank">View Code</a>
+              <a class="small-btn" href="#" onclick="openDemo(event,'https://example.com/demo2')">Live Demo</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project card 3 -->
+        <article class="card project-card">
+          <div class="project-media">
+            <svg width="60%" height="60%" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="200" height="100" rx="8" fill="#071226"/><text x="100" y="56" fill="#ffd27f" font-size="14" font-weight="700" text-anchor="middle">Chatbot</text></svg>
+          </div>
+          <div class="project-content">
+            <h3 style="margin:0">Course Q&A Chatbot</h3>
+            <p class="muted" style="margin-top:6px">An intelligent assistant for course FAQs and quick references. Built a small knowledge base and search pipeline.</p>
+            <div class="tags">
+              <span class="tag">Python</span>
+              <span class="tag">NLP</span>
+            </div>
+            <div class="project-actions">
+              <a class="small-btn" href="https://github.com/your-username/course-chatbot" target="_blank">View Code</a>
+              <a class="small-btn" href="#" onclick="openDemo(event,'https://example.com/demo3')">Live Demo</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project card 4 -->
+        <article class="card project-card">
+          <div class="project-media">
+            <svg width="60%" height="60%" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="200" height="100" rx="8" fill="#071226"/><text x="100" y="56" fill="#ffc0e4" font-size="14" font-weight="700" text-anchor="middle">Mini Game</text></svg>
+          </div>
+          <div class="project-content">
+            <h3 style="margin:0">Snake Game Website</h3>
+            <p class="muted" style="margin-top:6px">A browser-implemented snake game with score saving and mobile-friendly controls.</p>
+            <div class="tags">
+              <span class="tag">HTML</span>
+              <span class="tag">Canvas</span>
+              <span class="tag">JavaScript</span>
+            </div>
+            <div class="project-actions">
+              <a class="small-btn" href="https://github.com/your-username/snake-game" target="_blank">View Code</a>
+              <a class="small-btn" href="#" onclick="openDemo(event,'https://example.com/demo4')">Live Demo</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" style="margin-top:18px">
+      <h2>Contact Me</h2>
+      <div class="card contact-grid">
+        <div>
+          <p class="muted">Prefer email? Send me a message or use the contact form. I typically respond within a few business days.</p>
+
+          <div style="margin-top:12px">
+            <strong>Email</strong>
+            <div class="muted">your.email@example.com</div>
+
+            <div style="margin-top:12px">
+              <strong>Location</strong>
+              <div class="muted">[City], [Country]</div>
+            </div>
+
+            <div style="margin-top:12px">
+              <strong>Profiles</strong>
+              <div style="display:flex;gap:8px;margin-top:8px">
+                <a class="small-btn" href="https://github.com/your-username" target="_blank">GitHub</a>
+                <a class="small-btn" href="https://www.linkedin.com/in/your-profile" target="_blank">LinkedIn</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <form id="contactForm" onsubmit="submitForm(event)">
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" name="name" placeholder="Your name" required />
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="you@example.com" required />
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Hi! I'm interested in..." required></textarea>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center">
+            <button class="btn" type="submit">Send Message</button>
+            <div id="formStatus" class="muted" style="font-size:13px"></div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <div class="muted">© <span id="year"></span> [Your Name]. Built with ❤️ • Deploy on GitHub Pages / Vercel / Netlify</div>
+    </footer>
+  </div>
+
+  <script>
+    // small helpers
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // animate simple fade-up on load
+    window.addEventListener('DOMContentLoaded', ()=>{
+      document.querySelectorAll('.fade-up').forEach((el,i)=>{el.style.animationDelay = (i*0.05)+'s'});
+    });
+
+    // Demo opener (replace with real links)
+    function openDemo(e,url){
+      e.preventDefault();
+      if(!url || url === '#'){
+        alert('Demo link not available. Replace with your live demo URL.');
+        return;
+      }
+      window.open(url,'_blank');
+    }
+
+    // contact form — simple client-side send via mailto fallback
+    function submitForm(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      const status = document.getElementById('formStatus');
+
+      if(!name || !email || !message){ status.textContent = 'Please complete all fields.'; return; }
+
+      // Try to use Formspree (uncomment and replace your endpoint), otherwise open mail client
+      // const formData = new FormData();
+      // formData.append('name', name);
+      // formData.append('email', email);
+      // formData.append('message', message);
+      // fetch('https://formspree.io/f/your-id', { method:'POST', body: formData }).then(()=>{ status.textContent = 'Message sent — thank you!'; }).catch(()=>{ status.textContent = 'Send failed — try mailto.'; });
+
+      // mailto fallback
+      const subject = encodeURIComponent('Portfolio contact from ' + name);
+      const body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\n' + message);
+      const mailto = 'mailto:your.email@example.com?subject='+subject+'&body='+body;
+      window.location.href = mailto;
+      status.textContent = 'Opening your email client...';
+    }
+  </script>
+</body>
+</html>
